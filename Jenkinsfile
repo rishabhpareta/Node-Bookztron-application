@@ -6,17 +6,19 @@ pipeline {
                 checkout scm
             }
         }
-                    
-        stage('Build'){
+
+        stage("test"){
             steps{
-                script{
-                    withDockerRegistry {
-                    sh "docker build -t rishabhdevopspareta/node:tag123"
-                    sh "dcoker push"
-                    }
-                    }
-                
+                sh 'sudo apt npm install'
+                sh 'npm test'
             }
         }
+
+        stage("build"){
+            steps{
+                sh 'mpm run build'
+            }
+        }
+    
     }
 }
