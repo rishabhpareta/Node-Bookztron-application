@@ -6,7 +6,7 @@ pipeline {
                 checkout scm
             }
         }
-    stages{
+
         stage('Build Image') {
             steps {
                 script {
@@ -16,6 +16,6 @@ pipeline {
                     }
                  }
             }
-         }
+         
     }
 }
