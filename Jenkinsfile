@@ -6,11 +6,16 @@ pipeline {
                 checkout scm
             }
         }
-        stage("Build Image"){
-            steps{
-                sh 'docker build -t my-node .'
+       
+    stages {
+        stage('Build Image') {
+            steps {
+                script {
+                    withEnv(["DOCKER_BUILDKIT=1"]) {
+                        sh 'docker build -t my-node-app:latest .'
+                    }
+                }
             }
         }
-                    
     }
 }
