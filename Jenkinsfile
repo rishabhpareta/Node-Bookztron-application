@@ -13,9 +13,11 @@ pipeline {
                 script {
                     withEnv(["DOCKER_BUILDKIT=1"]) {
                         sh 'docker build -t my-node-app:latest .'
+                        }
                     }
-                }
+             }
             }
-        }
+         }
+
     }
 }
