@@ -7,18 +7,13 @@ pipeline {
             }
         }
 
-        stage("test"){
+        stage("Build Image"){
             steps{
-                sh 'sudo apt install npm'
-                sh 'npm test'
+                sh 'docker build -t My-node-app:latest .'
+                
             }
         }
 
-        stage("build"){
-            steps{
-                sh 'mpm run build'
-            }
-        }
-    
+            
     }
 }
