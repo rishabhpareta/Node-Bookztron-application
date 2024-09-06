@@ -7,13 +7,6 @@ pipeline {
             }
         }
 
-        stage("Build Image"){
-            steps{
-                sh 'docker build -t My-node-app:latest .'
-                
-            }
-        }
-
-            
+                    
     }
 }
