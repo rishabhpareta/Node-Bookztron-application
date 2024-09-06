@@ -15,7 +15,7 @@ pipeline {
                         sh 'docker build -t my-node-app:latest .'
                         }
                     }
-             }
+                 }
             }
          }
 
