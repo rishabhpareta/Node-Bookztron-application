@@ -26,8 +26,9 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'Dockerhub', variable: 'dockerhub')]) {
                     sh 'docker login -u rishabhdevopspareta -p ${#Docker9479}'
+}  
                     sh 'docker push rishabhdevopspareta/my-node-app:latest'
-                    }
+                    
                 }
             }
         }
