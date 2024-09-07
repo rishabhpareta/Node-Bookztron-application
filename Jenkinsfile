@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'Dockerhub', variable: 'dockerhub')]) {
-                    sh 'dcoker login -u rishabhdevopspartea -p ${#Docker9479}'
+                    sh 'docker login -u rishabhdevopspartea -p ${#Docker9479}'
                     sh 'docker push rishabhdevopspareta/my-node-app:latest'
                     }
                 }
