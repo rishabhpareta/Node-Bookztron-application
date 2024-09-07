@@ -1,10 +1,6 @@
 pipeline {
     agent any
-    environment {
-        DOCKER_CREDENTIALS_ID = 'Docker-hub' // Your Docker Hub credentials ID
-        DOCKER_IMAGE_NAME = 'rishabhdevopspareta/node' // Docker Hub image name
-        DOCKER_TAG = 'latest' // Tag for the image
-    }
+    
     stages{
         stage("checkout"){
             steps{
