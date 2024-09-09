@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: my-node-app
-        image: "rishabhdevopspareta"  # Replace with your Docker Hub image
+        image: "rishabhdevopspareta/my-node-app:latest"  # Replace with your Docker Hub image
         ports:
           - containerPort: 3000
         
