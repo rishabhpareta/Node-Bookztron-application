@@ -22,7 +22,7 @@ pipeline {
          stage('Push Docker Image') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                sh 'docker push rishabhdevopspareta/my-node-app:lates'
+                sh 'docker push rishabhdevopspareta/my-node-app:latest'
             }
         }
     }
