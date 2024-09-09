@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    
+    environment {
+        DOCKERHUB_CREDENTIALS=credentials('dockerhublogin')
+    }
     stages{
         stage("checkout"){
             steps{
@@ -12,20 +14,15 @@ pipeline {
             steps {
                 script {
                     //withEnv(["DOCKER_BUILDKIT=0"]) {
-                        sh 'docker build -t my-node-app:latest .'
+                        sh 'docker build -t rishabhdevopspareta/my-node-app:latest .'
                         //}
                     }
                  }
             }
          stage('Push Docker Image') {
             steps {
-                script {
-                    withCredentials([string(credentialsId: 'Dockerhub', variable: 'dockerhub')]) {
-                    sh 'docker login -u rishabhdevopspareta -p ${#Docker9479}'
-}  
-                    sh 'docker push rishabhdevopspareta/my-node-app:latest'
-                    
-                }
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                sh 'docker push rishabhdevopspareta/my-node-app:lates'
             }
         }
     }
