@@ -30,7 +30,7 @@ pipeline {
                 script {
                     sh ('aws eks update-kuberconfig --name node_eks1 --region us-east-2')
                     sh "kubectl get ns"
-                    sh "kubectl apply -f "
+                    sh "kubectl apply -f mynodeapp.yaml"
                 }
             }
         }
