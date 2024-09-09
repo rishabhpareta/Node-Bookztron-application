@@ -25,5 +25,14 @@ pipeline {
                 sh 'docker push rishabhdevopspareta/my-node-app:latest'
             }
         }
+        stage('Deploying node app to Kubernetes') {
+            steps {
+                script {
+                    sh ('aws eks update-kuberconfig --name node_eks1 --region us-east-2')
+                    sh "kubectl get ns"
+                    sh "kubectl apply -f "
+                }
+            }
+        }
     }
 }
